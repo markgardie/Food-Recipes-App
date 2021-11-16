@@ -1,4 +1,4 @@
-package com.markgardie.graduatework
+package com.markgardie.graduatework.models
 
 import com.google.gson.annotations.SerializedName
 

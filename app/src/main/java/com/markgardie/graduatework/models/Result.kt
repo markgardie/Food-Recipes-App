@@ -1,7 +1,8 @@
-package com.markgardie.graduatework
+package com.markgardie.graduatework.models
 
 
 import com.google.gson.annotations.SerializedName
+import com.markgardie.graduatework.models.ExtendedIngredient
 
 data class Result(
         @SerializedName("aggregateLikes")
