@@ -1,4 +1,4 @@
-package com.markgardie.graduatework
+package com.markgardie.graduatework.data.network
 
 import com.markgardie.graduatework.models.FoodRecipe
 import retrofit2.Response

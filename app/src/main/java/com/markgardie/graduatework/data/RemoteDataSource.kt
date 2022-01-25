@@ -1,5 +1,6 @@
-package com.markgardie.graduatework
+package com.markgardie.graduatework.data
 
+import com.markgardie.graduatework.data.network.FoodRecipesApi
 import com.markgardie.graduatework.models.FoodRecipe
 import retrofit2.Response
 import javax.inject.Inject

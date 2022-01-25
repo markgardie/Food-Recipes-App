@@ -1,7 +1,7 @@
 package com.markgardie.graduatework.di
 
 import com.markgardie.graduatework.Constants.Companion.BASE_URL
-import com.markgardie.graduatework.FoodRecipesApi
+import com.markgardie.graduatework.data.network.FoodRecipesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
