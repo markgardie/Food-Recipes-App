@@ -1,4 +1,4 @@
-package com.markgardie.graduatework
+package com.markgardie.graduatework.util
 
 class Constants {
 
