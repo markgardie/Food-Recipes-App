@@ -1,4 +1,4 @@
-package com.markgardie.graduatework
+package com.markgardie.graduatework.viewmodels
 
 import android.app.Application
 import android.content.Context
@@ -13,7 +13,6 @@ import com.markgardie.graduatework.models.FoodRecipe
 import com.markgardie.graduatework.util.NetworkResult
 import kotlinx.coroutines.launch
 import retrofit2.Response
-import java.time.temporal.TemporalQueries
 
 class MainViewModel @ViewModelInject constructor (
         private val repository: Repository,
