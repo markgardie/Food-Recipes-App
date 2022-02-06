@@ -1,4 +1,4 @@
-package com.markgardie.graduatework
+package com.markgardie.graduatework.data.database
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

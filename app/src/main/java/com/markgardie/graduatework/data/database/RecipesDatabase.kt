@@ -1,4 +1,4 @@
-package com.markgardie.graduatework
+package com.markgardie.graduatework.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
