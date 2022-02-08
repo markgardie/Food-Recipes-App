@@ -1,6 +1,5 @@
 package com.markgardie.graduatework.ui.fragments.recipes
 
-import android.net.Network
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.markgardie.graduatework.MainViewModel
+import com.markgardie.graduatework.viewmodels.MainViewModel
 import com.markgardie.graduatework.R
 import com.markgardie.graduatework.adapters.RecipesAdapter
 import com.markgardie.graduatework.util.Constants.Companion.API_KEY
