@@ -7,15 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.observe
+import androidx.lifecycle.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.markgardie.graduatework.viewmodels.MainViewModel
 import com.markgardie.graduatework.R
 import com.markgardie.graduatework.adapters.RecipesAdapter
-import com.markgardie.graduatework.util.Constants.Companion.API_KEY
 import com.markgardie.graduatework.util.NetworkResult
+import com.markgardie.graduatework.util.observeOnce
 import com.markgardie.graduatework.viewmodels.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_recipes.view.*
@@ -56,15 +54,15 @@ class RecipesFragment : Fragment() {
 
     private fun readDatabase() {
         lifecycleScope.launch {
-            mainViewModel.readRecipes.observe(viewLifecycleOwner) { database ->
+            mainViewModel.readRecipes.observeOnce(viewLifecycleOwner, Observer { database ->
                 if (database.isNotEmpty()) {
-                    Log.d("RecipesFragment", "readDatabase called")
+                    Log.d("RecipesFragment", "readDatabase called!")
                     mAdapter.setData(database[0].foodRecipe)
                     hideShimmerEffect()
                 } else {
                     requestApiData()
                 }
-            }
+            })
         }
     }
 
@@ -115,3 +113,5 @@ class RecipesFragment : Fragment() {
     }
 
 }
+
+
