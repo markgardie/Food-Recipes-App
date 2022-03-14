@@ -19,6 +19,7 @@ import com.markgardie.graduatework.util.Constants.Companion.QUERY_TYPE
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import android.widget.Toast
 
 class RecipesViewModel @ViewModelInject constructor(
         application: Application,
@@ -27,6 +28,8 @@ class RecipesViewModel @ViewModelInject constructor(
 
     private var mealType = DEFAULT_MEAL_TYPE
     private var dietType = DEFAULT_DIET_TYPE
+
+    var networkStatus = false
 
     val readMealAndDietType = dataStoreRepository.readMealAndDietType
 
@@ -54,4 +57,11 @@ class RecipesViewModel @ViewModelInject constructor(
 
         return queries
     }
+
+    fun showNetworkStatus() {
+        if (!networkStatus) {
+            Toast.makeText(getApplication(), "No Internet Connection.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }
