@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import com.markgardie.graduatework.R
 import com.markgardie.graduatework.adapters.PagerAdapter
-import com.markgardie.graduatework.ui.fragments.IngredientsFragment
-import com.markgardie.graduatework.ui.fragments.InstructionsFragment
-import com.markgardie.graduatework.ui.fragments.OverviewFragment
+import com.markgardie.graduatework.ui.fragments.ingredients.IngredientsFragment
+import com.markgardie.graduatework.ui.fragments.instructions.InstructionsFragment
+import com.markgardie.graduatework.ui.fragments.overview.OverviewFragment
 import kotlinx.android.synthetic.main.activity_details.*
 
 class DetailsActivity : AppCompatActivity() {

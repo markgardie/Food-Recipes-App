@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.ui.fragments
+package com.markgardie.graduatework.ui.fragments.instructions
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
