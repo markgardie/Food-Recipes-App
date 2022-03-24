@@ -8,10 +8,33 @@ import androidx.core.graphics.convertTo
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.markgardie.graduatework.R
+import android.util.Log
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
+import com.markgardie.graduatework.models.Result
+import com.markgardie.graduatework.ui.fragments.recipes.RecipesFragmentDirections
+import org.jsoup.Jsoup
+import java.lang.Exception
+
 
 class RecipesRowBinding {
 
     companion object {
+
+        @BindingAdapter("onRecipeClickListener")
+        @JvmStatic
+        fun onRecipeClickListener(recipeRowLayout: ConstraintLayout, result: Result) {
+            Log.d("onRecipeClickListener", "CALLED")
+            recipeRowLayout.setOnClickListener {
+                try {
+                    val action =
+                        RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(result)
+                    recipeRowLayout.findNavController().navigate(action)
+                } catch (e: Exception) {
+                    Log.d("onRecipeClickListener", e.toString())
+                }
+            }
+        }
 
         @BindingAdapter("loadImageFromUrl")
         @JvmStatic
@@ -59,6 +82,16 @@ class RecipesRowBinding {
                 }
             }
         }
+
+        @BindingAdapter("parseHtml")
+        @JvmStatic
+        fun parseHtml(textView: TextView, description: String?){
+            if(description != null) {
+                val desc = Jsoup.parse(description).text()
+                textView.text = desc
+            }
+        }
+
     }
 
 }
