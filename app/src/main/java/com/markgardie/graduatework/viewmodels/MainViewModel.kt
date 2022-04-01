@@ -7,7 +7,7 @@ import android.net.NetworkCapabilities
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.markgardie.graduatework.data.Repository
-import com.markgardie.graduatework.data.database.RecipesEntity
+import com.markgardie.graduatework.data.database.entities.RecipesEntity
 import com.markgardie.graduatework.models.FoodRecipe
 import com.markgardie.graduatework.util.NetworkResult
 import kotlinx.coroutines.Dispatchers

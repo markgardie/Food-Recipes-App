@@ -1,7 +1,7 @@
 package com.markgardie.graduatework.data
 
 import com.markgardie.graduatework.data.database.RecipesDao
-import com.markgardie.graduatework.data.database.RecipesEntity
+import com.markgardie.graduatework.data.database.entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

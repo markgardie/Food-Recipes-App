@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.markgardie.graduatework.data.database.RecipesEntity
+import com.markgardie.graduatework.data.database.entities.RecipesEntity
 import com.markgardie.graduatework.models.FoodRecipe
 import com.markgardie.graduatework.util.NetworkResult
 
