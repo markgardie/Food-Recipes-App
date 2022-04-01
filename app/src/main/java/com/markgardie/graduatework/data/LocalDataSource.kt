@@ -1,6 +1,7 @@
 package com.markgardie.graduatework.data
 
 import com.markgardie.graduatework.data.database.RecipesDao
+import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 import com.markgardie.graduatework.data.database.entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -14,9 +15,26 @@ class LocalDataSource @Inject constructor(
         return recipesDao.readRecipes()
     }
 
+    fun readFavoriteRecipes(): Flow<List<FavoritesEntity>> {
+        return recipesDao.readFavoriteRecipes()
+    }
+
+
     suspend fun insertRecipes(recipesEntity: RecipesEntity) {
         recipesDao.insertRecipes(recipesEntity)
 
+    }
+
+    suspend fun insertFavoriteRecipes(favoritesEntity: FavoritesEntity) {
+        recipesDao.insertFavoriteRecipe(favoritesEntity)
+    }
+
+    suspend fun deleteFavoriteRecipes(favoritesEntity: FavoritesEntity) {
+        recipesDao.deleteFavoriteRecipe(favoritesEntity)
+    }
+
+    suspend fun deleteAllFavoriteRecipes() {
+        recipesDao.deleteAllFavoriteRecipes()
     }
 
 }
