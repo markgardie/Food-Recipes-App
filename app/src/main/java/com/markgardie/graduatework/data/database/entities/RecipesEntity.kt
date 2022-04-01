@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.data.database
+package com.markgardie.graduatework.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
