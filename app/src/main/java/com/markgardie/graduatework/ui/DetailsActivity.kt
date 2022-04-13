@@ -19,6 +19,9 @@ import com.markgardie.graduatework.util.Constants.Companion.RECIPE_RESULT_KEY
 import com.markgardie.graduatework.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_details.*
+import android.util.Log
+import androidx.lifecycle.observe
+import java.lang.Exception
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
@@ -60,7 +63,23 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.details_menu, menu)
+        val menuItem = menu?.findItem(R.id.save_to_favorites_menu)
+        checkSavedRecipes(menuItem!!)
         return true
+    }
+
+    private fun checkSavedRecipes(menuItem: MenuItem) {
+        mainViewModel.readFavoriteRecipes.observe(this) { favoritesEntity ->
+            try {
+                for (savedRecipe in favoritesEntity) {
+                    if (savedRecipe.result.recipeId == args.result.recipeId) {
+                        changeMenuItemColor(menuItem, R.color.yellow)
+                    }
+                }
+            } catch (e: Exception) {
+                Log.d("DetailsActivity", e.message.toString())
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
