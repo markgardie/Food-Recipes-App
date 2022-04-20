@@ -1,10 +1,11 @@
 package com.markgardie.graduatework.adapters
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.markgardie.graduatework.R
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 import com.markgardie.graduatework.databinding.FavoritesRecipesRowLayoutBinding
 import com.markgardie.graduatework.ui.fragments.favorites.FavoriteRecipesFragmentDirections
@@ -12,7 +13,9 @@ import com.markgardie.graduatework.util.RecipesDiffUtil
 import kotlinx.android.synthetic.main.favorites_recipes_row_layout.view.*
 
 
-class FavoriteRecipesAdapter : RecyclerView.Adapter<FavoriteRecipesAdapter.MyViewHolder>() {
+class FavoriteRecipesAdapter(
+        private val requireActivity: FragmentActivity
+) : RecyclerView.Adapter<FavoriteRecipesAdapter.MyViewHolder>(), ActionMode.Callback  {
 
     private var favoriteRecipes = emptyList<FavoritesEntity>()
 
@@ -42,6 +45,10 @@ class FavoriteRecipesAdapter : RecyclerView.Adapter<FavoriteRecipesAdapter.MyVie
         val selectedRecipe = favoriteRecipes[position]
         holder.bind(selectedRecipe)
 
+        /**
+         * Single Click Listener
+         * */
+
         holder.itemView.favoriteRecipesRowLayout.setOnClickListener {
             val action =
                     FavoriteRecipesFragmentDirections.actionFavoriteRecipesFragmentToDetailsActivity(
@@ -49,6 +56,17 @@ class FavoriteRecipesAdapter : RecyclerView.Adapter<FavoriteRecipesAdapter.MyVie
                     )
             holder.itemView.findNavController().navigate(action)
         }
+
+
+        /**
+         * Long Click Listener
+         * */
+
+        holder.itemView.favoriteRecipesRowLayout.setOnLongClickListener {
+            requireActivity.startActionMode(this)
+            true
+        }
+
     }
 
     override fun getItemCount(): Int {
@@ -62,4 +80,22 @@ class FavoriteRecipesAdapter : RecyclerView.Adapter<FavoriteRecipesAdapter.MyVie
         favoriteRecipes = newFavoriteRecipes
         diffUtilResult.dispatchUpdatesTo(this)
     }
+
+    override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
+        actionMode?.menuInflater?.inflate(R.menu.favorites_contextual_menu, menu)
+        return true
+    }
+
+    override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
+        return true
+    }
+
+    override fun onActionItemClicked(actionMode: ActionMode?, menu: MenuItem?): Boolean {
+        return true
+    }
+
+    override fun onDestroyActionMode(actionMode: ActionMode?) {
+
+    }
+
 }
