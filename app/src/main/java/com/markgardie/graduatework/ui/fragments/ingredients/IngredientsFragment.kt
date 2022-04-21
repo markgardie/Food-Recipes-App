@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_ingredients.view.*
 
 class IngredientsFragment : Fragment() {
 
-    private val mAdapter: IngredientsAdapter by lazy { IngredientsAdapter() }
+    private val mAdapter: IngredientsAdapter by lazy { IngredientsAdapter(requireActivity()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
