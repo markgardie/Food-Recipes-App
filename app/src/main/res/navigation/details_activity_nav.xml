@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_ingredientsFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_ingredientsFragment_to_pricesFragment"
+            app:destination="@id/pricesFragment" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"
         android:name="com.markgardie.graduatework.ui.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/pricesFragment"
+        android:name="com.markgardie.graduatework.ui.fragments.prices.PricesFragment"
+        android:label="fragment_prices"
+        tools:layout="@layout/fragment_prices" />
 </navigation>
