@@ -3,6 +3,7 @@ package com.markgardie.graduatework.adapters
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -14,6 +15,7 @@ import coil.load
 import com.markgardie.graduatework.R
 import com.markgardie.graduatework.databinding.IngredientsRowLayoutBinding
 import com.markgardie.graduatework.models.ExtendedIngredient
+import com.markgardie.graduatework.ui.fragments.ingredients.IngredientsFragment
 import com.markgardie.graduatework.ui.fragments.ingredients.IngredientsFragmentDirections
 import com.markgardie.graduatework.util.Constants.Companion.BASE_IMAGE_URL
 import com.markgardie.graduatework.util.RecipesDiffUtil
@@ -22,7 +24,9 @@ import java.lang.Exception
 
 
 
-class IngredientsAdapter(): RecyclerView.Adapter<IngredientsAdapter.MyViewHolder>() {
+class IngredientsAdapter(
+        private val requireActivity: FragmentActivity
+): RecyclerView.Adapter<IngredientsAdapter.MyViewHolder>() {
 
     private var ingredientsList = emptyList<ExtendedIngredient>()
 
@@ -60,7 +64,14 @@ class IngredientsAdapter(): RecyclerView.Adapter<IngredientsAdapter.MyViewHolder
         holder.itemView.ingredient_consistency.text = ingredientsList[position].consistency
         holder.itemView.ingredient_original.text = ingredientsList[position].original
 
-
+        holder.itemView.ingredientsRowLayout.setOnClickListener {
+            try {
+                val action = IngredientsFragmentDirections.actionIngredientsFragmentToPricesFragment()
+                requireActivity.findNavController(R.id.detailsActivityNavHostFragment).navigate(action)
+            } catch (e: Exception) {
+                Log.d("ingredientsRowLayout.setOnClickListener", e.toString())
+            }
+        }
     }
 
     override fun getItemCount(): Int {
