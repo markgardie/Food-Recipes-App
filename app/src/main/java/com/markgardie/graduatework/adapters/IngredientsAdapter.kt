@@ -66,7 +66,7 @@ class IngredientsAdapter(
 
         holder.itemView.ingredientsRowLayout.setOnClickListener {
             try {
-                val action = IngredientsFragmentDirections.actionIngredientsFragmentToPricesFragment()
+                val action = IngredientsFragmentDirections.actionIngredientsFragmentToPriceActivity()
                 requireActivity.findNavController(R.id.detailsActivityNavHostFragment).navigate(action)
             } catch (e: Exception) {
                 Log.d("ingredientsRowLayout.setOnClickListener", e.toString())
