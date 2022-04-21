@@ -1,5 +1,6 @@
 package com.markgardie.graduatework.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -20,6 +21,7 @@ import com.markgardie.graduatework.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_details.*
 import android.util.Log
+import androidx.core.app.ShareCompat
 import androidx.lifecycle.observe
 import java.lang.Exception
 
@@ -69,6 +71,10 @@ class DetailsActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.details_menu, menu)
         menuItem = menu!!.findItem(R.id.save_to_favorites_menu)
         checkSavedRecipes(menuItem)
+        if (null == getShareIntent().resolveActivity(this!!.packageManager)) {
+            menu.findItem(R.id.sharing).isVisible = false
+        }
+
         return true
     }
 
@@ -95,6 +101,8 @@ class DetailsActivity : AppCompatActivity() {
             saveToFavorites(item)
         } else if (item.itemId == R.id.save_to_favorites_menu && recipeSaved) {
             removeFromFavorites(item)
+        } else if (item.itemId == R.id.sharing) {
+            shareSuccess()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -121,6 +129,17 @@ class DetailsActivity : AppCompatActivity() {
         changeMenuItemColor(item, R.color.yellow)
         showSnackBar("Recipe saved.")
         recipeSaved = true
+    }
+
+    private fun getShareIntent(): Intent {
+        return ShareCompat.IntentBuilder.from(this)
+                .setText(args.result.sourceUrl)
+                .setType("text/plain")
+                .intent
+    }
+
+    private fun shareSuccess() {
+        startActivity(getShareIntent())
     }
 
     private fun showSnackBar(message: String) {
