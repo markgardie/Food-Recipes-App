@@ -18,5 +18,9 @@
         android:id="@+id/priceActivity"
         android:name="com.markgardie.graduatework.ui.PriceActivity"
         android:label="activity_price"
-        tools:layout="@layout/activity_price" />
+        tools:layout="@layout/activity_price" >
+        <argument
+            android:name="ingredient"
+            app:argType="com.markgardie.graduatework.models.ExtendedIngredient" />
+    </activity>
 </navigation>
