@@ -102,7 +102,7 @@ class DetailsActivity : AppCompatActivity() {
         } else if (item.itemId == R.id.save_to_favorites_menu && recipeSaved) {
             removeFromFavorites(item)
         } else if (item.itemId == R.id.sharing) {
-            shareSuccess()
+            shareRecipe()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -138,7 +138,7 @@ class DetailsActivity : AppCompatActivity() {
                 .intent
     }
 
-    private fun shareSuccess() {
+    private fun shareRecipe() {
         startActivity(getShareIntent())
     }
 
