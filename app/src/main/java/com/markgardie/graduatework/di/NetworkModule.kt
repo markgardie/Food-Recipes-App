@@ -34,8 +34,8 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitInstance(okHttpClient: OkHttpClient,
-                                gsonConverterFactory: GsonConverterFactory) : Retrofit {
+    fun provideSpoonacularRetrofitInstance(okHttpClient: OkHttpClient,
+                                           gsonConverterFactory: GsonConverterFactory) : Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
@@ -46,7 +46,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): FoodRecipesApi {
+    fun provideSpoonacularApiService(retrofit: Retrofit): FoodRecipesApi {
         return retrofit.create(FoodRecipesApi::class.java)
     }
 
