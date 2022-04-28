@@ -8,6 +8,8 @@ import java.util.*
 @Parcelize
 data class Product(
         @SerializedName("title")
+        val ean: String,
+        @SerializedName("title")
         val title: String,
         @SerializedName("price")
         val price: Int,
