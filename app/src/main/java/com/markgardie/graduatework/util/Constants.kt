@@ -18,6 +18,7 @@ class Constants {
         const val QUERY_DIET = "diet"
         const val QUERY_ADD_RECIPE_INFORMATION = "addRecipeInformation"
         const val QUERY_FILL_INGREDIENTS = "fillIngredients"
+        const val PRODUCTS_QUERY_SEARCH = "q"
 
         //Shops Keys
         const val EKO_MARKET = "48280187"
