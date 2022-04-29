@@ -13,7 +13,7 @@ interface ProductsApi {
     @GET("/{shop_id}/products/search")
     suspend fun getProducts(
             @Path("shop_id") shopId: String,
-            @Query("title") title: String
+            @Query("q") title: String
     ): Response<ProductsList>
 
 }
