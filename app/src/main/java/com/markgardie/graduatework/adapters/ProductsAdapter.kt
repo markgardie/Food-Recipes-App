@@ -10,6 +10,7 @@ import com.markgardie.graduatework.databinding.FavoritesRecipesRowLayoutBinding
 import com.markgardie.graduatework.databinding.ProductsRowLayoutBinding
 import com.markgardie.graduatework.models.FoodRecipe
 import com.markgardie.graduatework.models.Product
+import com.markgardie.graduatework.models.ProductsList
 import com.markgardie.graduatework.util.RecipesDiffUtil
 import com.markgardie.graduatework.viewmodels.MainViewModel
 
@@ -49,10 +50,10 @@ class ProductsAdapter(): RecyclerView.Adapter<ProductsAdapter.MyViewHolder>() {
         return products.size
     }
 
-    fun setData(newData: List<Product>) {
-        val recipesDiffUtil = RecipesDiffUtil(products, newData)
+    fun setData(newData: ProductsList) {
+        val recipesDiffUtil = RecipesDiffUtil(products, newData.productsList)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
-        products = newData
+        products = newData.productsList
 
         diffUtilResult.dispatchUpdatesTo(this)
 
