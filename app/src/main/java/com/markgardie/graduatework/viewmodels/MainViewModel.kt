@@ -11,6 +11,7 @@ import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 import com.markgardie.graduatework.data.database.entities.RecipesEntity
 import com.markgardie.graduatework.models.FoodRecipe
 import com.markgardie.graduatework.models.Product
+import com.markgardie.graduatework.models.ProductsList
 import com.markgardie.graduatework.util.NetworkResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -49,7 +50,7 @@ class MainViewModel @ViewModelInject constructor (
     /** RETROFIT */
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
     var searchedRecipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
-    var productsResponse: MutableLiveData<NetworkResult<Product>> = MutableLiveData()
+    var productsResponse: MutableLiveData<NetworkResult<ProductsList>> = MutableLiveData()
 
     fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
         getRecipesSafeCall(queries)
@@ -138,12 +139,12 @@ class MainViewModel @ViewModelInject constructor (
         }
     }
 
-    private fun handleProductResponse(response: Response<Product>): NetworkResult<Product>? {
+    private fun handleProductResponse(response: Response<ProductsList>): NetworkResult<ProductsList>? {
         when {
             response.message().toString().contains("timeout") -> {
                 return NetworkResult.Error("Timeout")
             }
-            response.body()!!.ean.isNullOrEmpty() -> {
+            response.body()!!.productsList.isNullOrEmpty() -> {
                 return NetworkResult.Error("Products not found.")
             }
             response.isSuccessful -> {
