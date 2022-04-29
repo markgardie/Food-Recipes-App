@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.navArgs
 import com.markgardie.graduatework.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PriceActivity : AppCompatActivity() {
 
 

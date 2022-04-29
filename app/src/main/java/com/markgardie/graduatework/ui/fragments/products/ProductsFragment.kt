@@ -23,8 +23,11 @@ import com.markgardie.graduatework.util.NetworkListener
 import com.markgardie.graduatework.util.NetworkResult
 import com.markgardie.graduatework.viewmodels.MainViewModel
 import com.markgardie.graduatework.viewmodels.RecipesViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-
+@ExperimentalCoroutinesApi
+@AndroidEntryPoint
 class ProductsFragment : Fragment() {
 
     private var _binding: FragmentProductsBinding? = null
