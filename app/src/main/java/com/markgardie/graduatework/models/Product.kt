@@ -7,7 +7,7 @@ import java.util.*
 
 @Parcelize
 data class Product(
-        @SerializedName("title")
+        @SerializedName("ean")
         val ean: String,
         @SerializedName("title")
         val title: String,
