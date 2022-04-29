@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.NavArgsLazy
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,9 +18,12 @@ import com.markgardie.graduatework.R
 import com.markgardie.graduatework.adapters.ProductsAdapter
 import com.markgardie.graduatework.databinding.FragmentProductsBinding
 import com.markgardie.graduatework.databinding.FragmentRecipesBinding
+import com.markgardie.graduatework.models.ExtendedIngredient
+import com.markgardie.graduatework.models.Product
 import com.markgardie.graduatework.ui.DetailsActivityArgs
 import com.markgardie.graduatework.ui.PriceActivityArgs
 import com.markgardie.graduatework.util.Constants.Companion.EKO_MARKET
+import com.markgardie.graduatework.util.Constants.Companion.INGREDIENTS_BUNDLE
 import com.markgardie.graduatework.util.NetworkListener
 import com.markgardie.graduatework.util.NetworkResult
 import com.markgardie.graduatework.viewmodels.MainViewModel
@@ -28,7 +33,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class ProductsFragment : Fragment() {
+class ProductsFragment() : Fragment() {
 
     private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
@@ -37,9 +42,7 @@ class ProductsFragment : Fragment() {
 
     private val mAdapter by lazy { ProductsAdapter () }
 
-    private lateinit var networkListener: NetworkListener
 
-    private val args by navArgs<PriceActivityArgs>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,17 +56,23 @@ class ProductsFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.mainViewModel = mainViewModel
 
+        val ingredientBundle = this.requireArguments()
+        val ingredient: ExtendedIngredient? = ingredientBundle.getParcelable<ExtendedIngredient>(INGREDIENTS_BUNDLE)
 
         setupRecyclerView()
-        requestApiData()
+        requestApiData(ingredient)
 
         return binding.root
     }
 
-    private fun requestApiData() {
+    private fun requestApiData(ingredient: ExtendedIngredient? ) {
         Log.d("ProductsFragment", "requestApiData called")
 
-        mainViewModel.getProducts(EKO_MARKET, args.ingredient.name)
+        val ingredientName = ingredient?.name
+
+        if (ingredientName != null) {
+            mainViewModel.getProducts(EKO_MARKET, ingredientName)
+        }
         mainViewModel.productsResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is NetworkResult.Success -> {
