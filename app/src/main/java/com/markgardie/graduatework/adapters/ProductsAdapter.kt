@@ -2,17 +2,12 @@ package com.markgardie.graduatework.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.markgardie.graduatework.data.database.entities.FavoritesEntity
-import com.markgardie.graduatework.databinding.FavoritesRecipesRowLayoutBinding
 import com.markgardie.graduatework.databinding.ProductsRowLayoutBinding
-import com.markgardie.graduatework.models.FoodRecipe
 import com.markgardie.graduatework.models.Product
 import com.markgardie.graduatework.models.ProductsList
 import com.markgardie.graduatework.util.RecipesDiffUtil
-import com.markgardie.graduatework.viewmodels.MainViewModel
 
 class ProductsAdapter(): RecyclerView.Adapter<ProductsAdapter.MyViewHolder>() {
 
@@ -51,9 +46,9 @@ class ProductsAdapter(): RecyclerView.Adapter<ProductsAdapter.MyViewHolder>() {
     }
 
     fun setData(newData: ProductsList) {
-        val recipesDiffUtil = RecipesDiffUtil(products, newData.productsList)
+        val recipesDiffUtil = RecipesDiffUtil(products, newData.products)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
-        products = newData.productsList
+        products = newData.products
 
         diffUtilResult.dispatchUpdatesTo(this)
 

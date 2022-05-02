@@ -3,7 +3,6 @@ package com.markgardie.graduatework.data
 import com.markgardie.graduatework.data.network.FoodRecipesApi
 import com.markgardie.graduatework.data.network.ProductsApi
 import com.markgardie.graduatework.models.FoodRecipe
-import com.markgardie.graduatework.models.Product
 import com.markgardie.graduatework.models.ProductsList
 import retrofit2.Response
 import javax.inject.Inject

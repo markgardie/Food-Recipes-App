@@ -7,27 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
-import androidx.navigation.NavArgsLazy
-import androidx.navigation.fragment.navArgs
-import androidx.navigation.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.markgardie.graduatework.R
 import com.markgardie.graduatework.adapters.ProductsAdapter
 import com.markgardie.graduatework.databinding.FragmentProductsBinding
-import com.markgardie.graduatework.databinding.FragmentRecipesBinding
 import com.markgardie.graduatework.models.ExtendedIngredient
-import com.markgardie.graduatework.models.Product
-import com.markgardie.graduatework.ui.DetailsActivityArgs
-import com.markgardie.graduatework.ui.PriceActivityArgs
 import com.markgardie.graduatework.util.Constants.Companion.EKO_MARKET
 import com.markgardie.graduatework.util.Constants.Companion.INGREDIENTS_BUNDLE
-import com.markgardie.graduatework.util.NetworkListener
 import com.markgardie.graduatework.util.NetworkResult
 import com.markgardie.graduatework.viewmodels.MainViewModel
-import com.markgardie.graduatework.viewmodels.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 

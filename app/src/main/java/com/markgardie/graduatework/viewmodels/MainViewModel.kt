@@ -10,7 +10,6 @@ import com.markgardie.graduatework.data.Repository
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 import com.markgardie.graduatework.data.database.entities.RecipesEntity
 import com.markgardie.graduatework.models.FoodRecipe
-import com.markgardie.graduatework.models.Product
 import com.markgardie.graduatework.models.ProductsList
 import com.markgardie.graduatework.util.NetworkResult
 import kotlinx.coroutines.Dispatchers
@@ -144,7 +143,7 @@ class MainViewModel @ViewModelInject constructor (
             response.message().toString().contains("timeout") -> {
                 return NetworkResult.Error("Timeout")
             }
-            response.body()!!.productsList.isNullOrEmpty() -> {
+            response.body()!!.products.isNullOrEmpty() -> {
                 return NetworkResult.Error("Products not found.")
             }
             response.isSuccessful -> {
