@@ -24,9 +24,10 @@ class Constants {
         const val EKO_MARKET = "48280187"
 
         //ROOM Database
-        const val DATABASE_NAME = "recipes_database"
+        const val DATABASE_NAME = "database"
         const val RECIPES_TABLE = "recipes_table"
         const val FAVORITE_RECIPES_TABLE = "favorite_recipes_table"
+        const val PRODUCTS_TABLE = "products_table"
 
         // Bottom Sheet Preferences
         const val DEFAULT_RECIPES_NUMBER = "50"
