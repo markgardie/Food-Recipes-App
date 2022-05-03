@@ -33,7 +33,8 @@ class ProductsRowBinding {
         @BindingAdapter("setPrice")
         @JvmStatic
         fun setPrice(textView: TextView, price: Int) {
-            textView.text = price.toString()
+            val formatPrice = price / 100.toDouble()
+            textView.text = formatPrice.toString()
         }
 
     }
