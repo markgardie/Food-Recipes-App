@@ -90,7 +90,7 @@ class MainViewModel @ViewModelInject constructor (
                 productsResponse.value = handleProductResponse(response)
 
             } catch (e: Exception) {
-                productsResponse.value = NetworkResult.Error("Products not found.")
+                productsResponse.value = NetworkResult.Error(e.toString())
             }
         } else {
             productsResponse.value = NetworkResult.Error("No Internet Connection.")
