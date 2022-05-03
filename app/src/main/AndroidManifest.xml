@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.PriceActivity"
+            android:name=".ui.ProductsActivity"
             android:label="Products"/>
         <activity
             android:name=".ui.DetailsActivity"
