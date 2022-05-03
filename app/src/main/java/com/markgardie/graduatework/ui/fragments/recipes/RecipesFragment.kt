@@ -181,7 +181,6 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         }
     }
 
-
     private fun loadDataFromCache() {
         lifecycleScope.launch {
             mainViewModel.readRecipes.observe(viewLifecycleOwner) {database ->
@@ -191,7 +190,6 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
             }
         }
     }
-
 
     private fun showShimmerEffect() {
         binding.recyclerview.showShimmer()

@@ -3,11 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/price_activity_nav"
-    app:startDestination="@id/pricesFragment">
-
+    app:startDestination="@id/productsFragment">
     <fragment
-        android:id="@+id/pricesFragment"
-        android:name="com.markgardie.graduatework.ui.fragments.prices.PricesFragment"
-        android:label="fragment_prices"
-        tools:layout="@layout/fragment_prices" />
+        android:id="@+id/productsFragment"
+        android:name="com.markgardie.graduatework.ui.fragments.products.ProductsFragment"
+        android:label="ProductsFragment" />
 </navigation>

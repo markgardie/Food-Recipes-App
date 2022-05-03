@@ -4,15 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="mainViewModel"
+            type="com.markgardie.graduatework.viewmodels.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragments.prices.PricesFragment" >
+        tools:context=".ui.fragments.products.ProductsFragment" >
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.todkars.shimmer.ShimmerRecyclerView
             android:id="@+id/priceRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
