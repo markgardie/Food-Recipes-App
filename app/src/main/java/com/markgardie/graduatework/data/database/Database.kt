@@ -12,7 +12,7 @@ import com.markgardie.graduatework.data.database.entities.RecipesEntity
         exportSchema = false
 )
 @TypeConverters(RecipesTypeConverter::class)
-abstract class RecipesDatabase : RoomDatabase(){
+abstract class Database : RoomDatabase(){
 
     abstract fun recipesDao() : RecipesDao
 }

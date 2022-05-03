@@ -2,7 +2,7 @@ package com.markgardie.graduatework.di
 
 import android.content.Context
 import androidx.room.Room
-import com.markgardie.graduatework.data.database.RecipesDatabase
+import com.markgardie.graduatework.data.database.Database
 import com.markgardie.graduatework.util.Constants.Companion.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -21,11 +21,11 @@ object DatabaseModule {
             @ApplicationContext context: Context
     ) = Room.databaseBuilder(
             context,
-            RecipesDatabase::class.java,
+            Database::class.java,
             DATABASE_NAME
     ).build()
 
     @Singleton
     @Provides
-    fun provideDao(database: RecipesDatabase) = database.recipesDao()
+    fun provideDao(database: Database) = database.recipesDao()
 }
