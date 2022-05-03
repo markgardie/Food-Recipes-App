@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken
 import com.markgardie.graduatework.models.FoodRecipe
 import com.markgardie.graduatework.models.Result
 
-class RecipesTypeConverter {
+class TypeConverter {
 
     var gson = Gson()
 
