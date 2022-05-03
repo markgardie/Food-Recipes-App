@@ -23,7 +23,7 @@ class ProductsActivity : AppCompatActivity() {
         ingredientsBundle.putParcelable(INGREDIENTS_BUNDLE, args.ingredient)
 
         val navController = findNavController(R.id.priceActivityNavHostFragment)
-        navController.setGraph(R.navigation.price_activity_nav, ingredientsBundle)
+        navController.setGraph(R.navigation.products_activity_nav, ingredientsBundle)
 
     }
 }
