@@ -1,8 +1,11 @@
 package com.markgardie.graduatework.models
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Product(
         @SerializedName("currency")
         val currency: String,
@@ -16,4 +19,4 @@ data class Product(
         val title: String,
         @SerializedName("weight")
         val weight: Double
-)
+) : Parcelable

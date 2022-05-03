@@ -1,8 +1,11 @@
 package com.markgardie.graduatework.models
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Image(
     @SerializedName("s1350x1350")
     val s1350x1350: String,
@@ -12,4 +15,4 @@ data class Image(
     val s200x200: String,
     @SerializedName("s350x350")
     val s350x350: String
-)
+) : Parcelable
