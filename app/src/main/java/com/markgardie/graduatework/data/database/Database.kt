@@ -16,4 +16,6 @@ import com.markgardie.graduatework.data.database.entities.RecipesEntity
 abstract class Database : RoomDatabase(){
 
     abstract fun recipesDao() : RecipesDao
+
+    abstract fun productsDao(): ProductsDao
 }
