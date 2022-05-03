@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface ProductsApi {
 
-    @GET("/{store_id}/products/search")
+    @GET("/stores/{store_id}/products/search")
     suspend fun getProducts(
             @Path("store_id") shopId: String,
             @Query("q") title: String
