@@ -30,11 +30,6 @@
             android:id="@+id/action_favoriteRecipesFragment_to_detailsActivity"
             app:destination="@id/detailsActivity" />
     </fragment>
-    <fragment
-        android:id="@+id/foodJokeFragment"
-        android:name="com.markgardie.graduatework.ui.fragments.foodjoke.FoodJokeFragment"
-        android:label="Food Joke"
-        tools:layout="@layout/fragment_food_joke" />
     <dialog
         android:id="@+id/recipesBottomSheet"
         android:name="com.markgardie.graduatework.ui.fragments.recipes.bottomsheet.RecipesBottomSheet"
@@ -53,4 +48,9 @@
             android:name="result"
             app:argType="com.markgardie.graduatework.models.Result" />
     </activity>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.markgardie.graduatework.ui.fragments.cart.CartFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>
