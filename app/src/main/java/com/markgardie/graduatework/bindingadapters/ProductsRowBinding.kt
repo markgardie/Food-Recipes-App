@@ -37,5 +37,11 @@ class ProductsRowBinding {
             textView.text = formatPrice.toString()
         }
 
+        @BindingAdapter("setWeight")
+        @JvmStatic
+        fun setWeight(textView: TextView, weight: Double) {
+            textView.text = weight.toString()
+        }
+
     }
 }

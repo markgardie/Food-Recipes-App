@@ -84,11 +84,11 @@
 
                 <TextView
                     android:id="@+id/ingredient_price"
+                    setPrice="@{product.price}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    setPrice="@{product.price}"
                     android:textColor="@color/titleColor"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -107,6 +107,35 @@
                     app:layout_constraintBottom_toBottomOf="@+id/ingredient_price"
                     app:layout_constraintStart_toEndOf="@+id/ingredient_price"
                     app:layout_constraintTop_toTopOf="@+id/ingredient_price" />
+
+                <TextView
+                    android:id="@+id/weight"
+                    setWeight="@{product.weight}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/slash"
+                    app:layout_constraintStart_toEndOf="@+id/slash" />
+
+                <TextView
+                    android:id="@+id/grams"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/g"
+                    app:layout_constraintBottom_toBottomOf="@+id/weight"
+                    app:layout_constraintStart_toEndOf="@+id/weight"
+                    app:layout_constraintTop_toTopOf="@+id/weight" />
+
+                <TextView
+                    android:id="@+id/slash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/slash"
+                    app:layout_constraintBottom_toBottomOf="@+id/currency"
+                    app:layout_constraintStart_toEndOf="@+id/currency"
+                    app:layout_constraintTop_toTopOf="@+id/currency" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
