@@ -44,13 +44,15 @@ class LocalDataSource @Inject constructor(
         recipesDao.deleteFavoriteRecipe(favoritesEntity)
     }
 
+    suspend fun removeFromCart(productEntity: ProductEntity) {
+        productsDao.removeFromCart(productEntity)
+    }
+
     suspend fun deleteAllFavoriteRecipes() {
         recipesDao.deleteAllFavoriteRecipes()
     }
 
-    suspend fun deleteFromCart(productEntity: ProductEntity) {
-        productsDao.deleteFromCart(productEntity)
+    suspend fun removeAllFromCart() {
+        productsDao.removeAllFromCart()
     }
-
-
 }
