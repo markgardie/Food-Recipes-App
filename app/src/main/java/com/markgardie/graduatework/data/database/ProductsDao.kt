@@ -12,7 +12,7 @@ interface ProductsDao {
     suspend fun addToCart(productEntity: ProductEntity)
 
     @Delete
-    suspend fun deleteFromCart(productEntity: ProductEntity)
+    suspend fun removeFromCart(productEntity: ProductEntity)
 
     @Query("DELETE FROM products_table")
     suspend fun deleteAllFromCart()
