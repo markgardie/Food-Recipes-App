@@ -8,6 +8,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.markgardie.graduatework.data.Repository
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
+import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.data.database.entities.RecipesEntity
 import com.markgardie.graduatework.models.FoodRecipe
 import com.markgardie.graduatework.models.ProductsList
@@ -36,15 +37,32 @@ class MainViewModel @ViewModelInject constructor (
                 repository.local.insertFavoriteRecipes(favoritesEntity)
             }
 
+    fun addToCart(productEntity: ProductEntity) =
+            viewModelScope.launch (Dispatchers.IO) {
+                repository.local.addToCart(productEntity)
+            }
+
     fun deleteFavoriteRecipe(favoritesEntity: FavoritesEntity) =
             viewModelScope.launch(Dispatchers.IO) {
                 repository.local.deleteFavoriteRecipe(favoritesEntity)
+            }
+
+    fun removeFromCart(productEntity: ProductEntity) =
+            viewModelScope.launch(Dispatchers.IO) {
+                repository.local.removeFromCart(productEntity)
             }
 
     fun deleteAllFavoriteRecipes() =
             viewModelScope.launch(Dispatchers.IO) {
                 repository.local.deleteAllFavoriteRecipes()
             }
+
+    fun removeAllFromCart() =
+            viewModelScope.launch(Dispatchers.IO) {
+                repository.local.removeAllFromCart()
+            }
+
+
 
     /** RETROFIT */
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
