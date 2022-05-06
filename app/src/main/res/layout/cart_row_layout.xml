@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="product"
+            type="com.markgardie.graduatework.models.Product" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cartRowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cartCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="@color/strokeColor"
+            app:strokeWidth="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cartBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardBackgroundColor"
+                android:elevation="2dp">
+
+                <View
+                    android:id="@+id/cart_white_background"
+                    android:layout_width="120dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/cart_shop_imageView"
+                    loadImageFromUrl="@{product.img.s350x350}"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cart_white_background"
+                    app:layout_constraintEnd_toEndOf="@+id/cart_white_background"
+                    app:layout_constraintStart_toStartOf="@+id/cart_white_background"
+                    app:layout_constraintTop_toTopOf="@+id/cart_white_background"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/cart_ingredient_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/courgette"
+                    android:text="@{product.title}"
+                    android:textColor="@color/titleColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cart_white_background"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cart_shop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="Ekomarket"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/cart_ingredient_name"
+                    app:layout_constraintTop_toBottomOf="@+id/cart_ingredient_name" />
+
+                <TextView
+                    android:id="@+id/cart_ingredient_price"
+                    setPrice="@{product.price}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:textColor="@color/titleColor"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/cart_shop"
+                    app:layout_constraintTop_toBottomOf="@+id/cart_shop"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/cart_currency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{product.currency}"
+                    android:textColor="@color/titleColor"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/cart_ingredient_price"
+                    app:layout_constraintStart_toEndOf="@+id/cart_ingredient_price"
+                    app:layout_constraintTop_toTopOf="@+id/cart_ingredient_price" />
+
+                <TextView
+                    android:id="@+id/cart_weight"
+                    setWeight="@{product.weight}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cart_slash"
+                    app:layout_constraintStart_toEndOf="@+id/cart_slash" />
+
+                <TextView
+                    android:id="@+id/cart_grams"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/g"
+                    app:layout_constraintBottom_toBottomOf="@+id/cart_weight"
+                    app:layout_constraintStart_toEndOf="@+id/cart_weight"
+                    app:layout_constraintTop_toTopOf="@+id/cart_weight" />
+
+                <TextView
+                    android:id="@+id/cart_slash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/slash"
+                    app:layout_constraintBottom_toBottomOf="@+id/cart_currency"
+                    app:layout_constraintStart_toEndOf="@+id/cart_currency"
+                    app:layout_constraintTop_toTopOf="@+id/cart_currency" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
