@@ -15,7 +15,7 @@ interface ProductsDao {
     suspend fun removeFromCart(productEntity: ProductEntity)
 
     @Query("DELETE FROM products_table")
-    suspend fun deleteAllFromCart()
+    suspend fun removeAllFromCart()
 
     @Query("SELECT * FROM products_table ORDER BY id ASC")
     fun readCart(): Flow<List<ProductEntity>>
