@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.databinding.CartRowLayoutBinding
 import com.markgardie.graduatework.databinding.ProductsRowLayoutBinding
 import com.markgardie.graduatework.models.Product
@@ -12,13 +13,13 @@ import com.markgardie.graduatework.util.RecipesDiffUtil
 
 class CartAdapter(): RecyclerView.Adapter<CartAdapter.MyViewHolder>() {
 
-    private var products = emptyList<Product>()
+    private var products = emptyList<ProductEntity>()
 
     class MyViewHolder(private val binding: CartRowLayoutBinding):
             RecyclerView.ViewHolder(binding.root){
 
-        fun bind(product: Product) {
-            binding.product = product
+        fun bind(productEntity: ProductEntity) {
+            binding.productEntity = productEntity
             binding.executePendingBindings()
         }
 
@@ -45,10 +46,10 @@ class CartAdapter(): RecyclerView.Adapter<CartAdapter.MyViewHolder>() {
         return products.size
     }
 
-    fun setData(newData: ProductsList) {
-        val recipesDiffUtil = RecipesDiffUtil(products, newData.products)
+    fun setData(newData: List<ProductEntity>) {
+        val recipesDiffUtil = RecipesDiffUtil(products, newData)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
-        products = newData.products
+        products = newData
 
         diffUtilResult.dispatchUpdatesTo(this)
 

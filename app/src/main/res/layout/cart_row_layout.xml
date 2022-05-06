@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="product"
-            type="com.markgardie.graduatework.models.Product" />
+            name="productEntity"
+            type = "com.markgardie.graduatework.data.database.entities.ProductEntity"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +45,7 @@
 
                 <ImageView
                     android:id="@+id/cart_shop_imageView"
-                    loadImageFromUrl="@{product.img.s350x350}"
+                    loadImageFromUrl="@{productEntity.product.img.s350x350}"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     app:layout_constraintBottom_toBottomOf="@+id/cart_white_background"
@@ -62,7 +62,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="12dp"
                     android:fontFamily="@font/courgette"
-                    android:text="@{product.title}"
+                    android:text="@{productEntity.product.title}"
                     android:textColor="@color/titleColor"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -84,7 +84,7 @@
 
                 <TextView
                     android:id="@+id/cart_ingredient_price"
-                    setPrice="@{product.price}"
+                    setPrice="@{productEntity.product.price}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -101,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@{product.currency}"
+                    android:text="@{productEntity.product.currency}"
                     android:textColor="@color/titleColor"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/cart_ingredient_price"
@@ -110,7 +110,7 @@
 
                 <TextView
                     android:id="@+id/cart_weight"
-                    setWeight="@{product.weight}"
+                    setWeight="@{productEntity.product.weight}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
