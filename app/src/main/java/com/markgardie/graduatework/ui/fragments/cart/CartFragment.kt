@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.markgardie.graduatework.adapters.CartAdapter
+import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.databinding.FragmentCartBinding
 import com.markgardie.graduatework.util.observeOnce
 import com.markgardie.graduatework.viewmodels.MainViewModel
@@ -24,6 +25,7 @@ class CartFragment : Fragment() {
 
     private var _binding: FragmentCartBinding? = null
     private val binding get() = _binding!!
+    var productEntities = mutableListOf<ProductEntity>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +45,7 @@ class CartFragment : Fragment() {
             mainViewModel.readCart.observeOnce(viewLifecycleOwner, Observer { database ->
                 if (database.isNotEmpty()) {
                     mAdapter.setData(database)
+                    productEntities.addAll(database)
                 }
             })
         }
