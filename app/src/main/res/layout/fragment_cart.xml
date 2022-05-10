@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="cartFragment"
+            type="com.markgardie.graduatework.ui.fragments.cart.CartFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,7 +35,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="100 uah"
+            setTotalPrice="@{cartFragment.productEntities}"
             android:textColor="@color/darker"
             android:textSize="30sp"
             android:textStyle="bold"
