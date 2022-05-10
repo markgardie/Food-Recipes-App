@@ -6,11 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.markgardie.graduatework.adapters.CartAdapter
 import com.markgardie.graduatework.databinding.FragmentCartBinding
+import com.markgardie.graduatework.util.observeOnce
 import com.markgardie.graduatework.viewmodels.MainViewModel
+import kotlinx.coroutines.launch
 
 
 class CartFragment : Fragment() {
@@ -29,8 +33,19 @@ class CartFragment : Fragment() {
         binding.lifecycleOwner = this
 
         setupRecyclerView(binding.cartRecyclerView)
+        readDatabase()
 
         return binding.root
+    }
+
+    private fun readDatabase() {
+        lifecycleScope.launch {
+            mainViewModel.readCart.observeOnce(viewLifecycleOwner, Observer { database ->
+                if (database.isNotEmpty()) {
+                    mAdapter.setData(database)
+                }
+            })
+        }
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
