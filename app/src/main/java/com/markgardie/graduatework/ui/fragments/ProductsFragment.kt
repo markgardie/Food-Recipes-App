@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.ui.fragments.products
+package com.markgardie.graduatework.ui.fragments
 
 import android.os.Bundle
 import android.util.Log

@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.ui.fragments.favorites
+package com.markgardie.graduatework.ui.fragments
 
 import android.os.Bundle
 import android.view.*

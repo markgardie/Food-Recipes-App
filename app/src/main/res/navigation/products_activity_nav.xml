@@ -6,7 +6,7 @@
     app:startDestination="@id/productsFragment">
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.markgardie.graduatework.ui.fragments.products.ProductsFragment"
+        android:name="com.markgardie.graduatework.ui.fragments.ProductsFragment"
         android:label="Products"
         tools:layout="@layout/fragment_products"/>
 </navigation>

@@ -10,7 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.markgardie.graduatework.R
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 import com.markgardie.graduatework.databinding.FavoritesRecipesRowLayoutBinding
-import com.markgardie.graduatework.ui.fragments.favorites.FavoriteRecipesFragmentDirections
+import com.markgardie.graduatework.ui.fragments.FavoriteRecipesFragmentDirections
 import com.markgardie.graduatework.util.RecipesDiffUtil
 import com.markgardie.graduatework.viewmodels.MainViewModel
 import kotlinx.android.synthetic.main.favorites_recipes_row_layout.view.*

@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.ui.fragments.recipes.bottomsheet
+package com.markgardie.graduatework.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.observe
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
@@ -71,7 +70,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
             )
 
             val action =
-                    RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
+                RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
             findNavController().navigate(action)
         }
 

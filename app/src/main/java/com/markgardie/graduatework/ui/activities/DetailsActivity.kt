@@ -16,9 +16,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.markgardie.graduatework.R
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 import com.markgardie.graduatework.ui.adapters.PagerAdapter
-import com.markgardie.graduatework.ui.fragments.ingredients.IngredientsFragment
-import com.markgardie.graduatework.ui.fragments.instructions.InstructionsFragment
-import com.markgardie.graduatework.ui.fragments.overview.OverviewFragment
+import com.markgardie.graduatework.ui.fragments.IngredientsFragment
+import com.markgardie.graduatework.ui.fragments.InstructionsFragment
+import com.markgardie.graduatework.ui.fragments.OverviewFragment
 import com.markgardie.graduatework.util.Constants.Companion.RECIPE_RESULT_KEY
 import com.markgardie.graduatework.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint

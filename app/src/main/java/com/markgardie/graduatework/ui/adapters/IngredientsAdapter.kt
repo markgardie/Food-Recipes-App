@@ -11,7 +11,7 @@ import coil.load
 import com.markgardie.graduatework.R
 import com.markgardie.graduatework.databinding.IngredientsRowLayoutBinding
 import com.markgardie.graduatework.models.ExtendedIngredient
-import com.markgardie.graduatework.ui.fragments.ingredients.IngredientsFragmentDirections
+import com.markgardie.graduatework.ui.fragments.IngredientsFragmentDirections
 import com.markgardie.graduatework.util.Constants.Companion.BASE_IMAGE_URL
 import com.markgardie.graduatework.util.RecipesDiffUtil
 import kotlinx.android.synthetic.main.ingredients_row_layout.view.*

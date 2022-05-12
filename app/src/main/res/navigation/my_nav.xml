@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/recipesFragment"
-        android:name="com.markgardie.graduatework.ui.fragments.recipes.RecipesFragment"
+        android:name="com.markgardie.graduatework.ui.fragments.RecipesFragment"
         android:label="Recipes"
         tools:layout="@layout/fragment_recipes" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteRecipesFragment"
-        android:name="com.markgardie.graduatework.ui.fragments.favorites.FavoriteRecipesFragment"
+        android:name="com.markgardie.graduatework.ui.fragments.FavoriteRecipesFragment"
         android:label="Favorites"
         tools:layout="@layout/fragment_favorite_recipes" >
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <dialog
         android:id="@+id/recipesBottomSheet"
-        android:name="com.markgardie.graduatework.ui.fragments.recipes.bottomsheet.RecipesBottomSheet"
+        android:name="com.markgardie.graduatework.ui.fragments.RecipesBottomSheet"
         android:label="recipes_bottom_sheet"
         tools:layout="@layout/recipes_bottom_sheet" >
         <action
@@ -50,7 +50,7 @@
     </activity>
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.markgardie.graduatework.ui.fragments.cart.CartFragment"
+        android:name="com.markgardie.graduatework.ui.fragments.CartFragment"
         android:label="Cart"
         tools:layout="@layout/fragment_cart" />
 </navigation>

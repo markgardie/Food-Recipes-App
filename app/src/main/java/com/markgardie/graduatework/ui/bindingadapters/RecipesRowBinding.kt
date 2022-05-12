@@ -11,7 +11,7 @@ import android.util.Log
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import com.markgardie.graduatework.models.Result
-import com.markgardie.graduatework.ui.fragments.recipes.RecipesFragmentDirections
+import com.markgardie.graduatework.ui.fragments.RecipesFragmentDirections
 import org.jsoup.Jsoup
 import java.lang.Exception
 
