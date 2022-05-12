@@ -19,11 +19,12 @@ class CartBinding {
         fun setTotalPrice(textView: TextView, productEntity: List<ProductEntity>) {
             var totalPrice = 0.0
 
-            if (productEntity.isNullOrEmpty()) {
+            if (productEntity.isNotEmpty()) {
                 for (products in productEntity) {
                     totalPrice += products.product.price / 100 .toDouble()
                 }
             }
+
 
             textView.text = totalPrice.toString()
         }
