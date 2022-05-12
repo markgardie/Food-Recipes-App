@@ -21,20 +21,20 @@ class CartAdapter(): RecyclerView.Adapter<CartAdapter.MyViewHolder>() {
         }
 
         companion object {
-            fun from(parent: ViewGroup): CartAdapter.MyViewHolder {
+            fun from(parent: ViewGroup): MyViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = CartRowLayoutBinding.inflate(layoutInflater, parent, false)
-                return CartAdapter.MyViewHolder(binding)
+                return MyViewHolder(binding)
             }
         }
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.MyViewHolder {
-        return CartAdapter.MyViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        return MyViewHolder.from(parent)
     }
 
-    override fun onBindViewHolder(holder: CartAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentProduct = products[position]
         holder.bind(currentProduct)
     }
