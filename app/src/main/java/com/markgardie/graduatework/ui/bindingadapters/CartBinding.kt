@@ -1,6 +1,7 @@
 package com.markgardie.graduatework.ui.bindingadapters
 
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -62,5 +63,19 @@ class CartBinding {
                 }
             }
         }
+
+        @BindingAdapter("buttonVisibility")
+        @JvmStatic
+        fun buttonVisibility(button: Button, productEntity: List<ProductEntity>?) {
+            if (productEntity.isNullOrEmpty()) {
+                button.visibility = Button.INVISIBLE
+            }
+            else {
+                button.visibility = Button.VISIBLE
+            }
+
+        }
     }
+
+
 }
