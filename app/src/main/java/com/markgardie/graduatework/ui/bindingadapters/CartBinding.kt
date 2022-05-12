@@ -1,6 +1,5 @@
-package com.markgardie.graduatework.bindingadapters
+package com.markgardie.graduatework.ui.bindingadapters
 
-import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.markgardie.graduatework.data.database.entities.ProductEntity

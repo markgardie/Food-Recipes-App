@@ -1,11 +1,11 @@
-package com.markgardie.graduatework.bindingadapters
+package com.markgardie.graduatework.ui.bindingadapters
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.markgardie.graduatework.adapters.FavoriteRecipesAdapter
+import com.markgardie.graduatework.ui.adapters.FavoriteRecipesAdapter
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 
 class FavoriteRecipesBinding {

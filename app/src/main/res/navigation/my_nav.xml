@@ -41,7 +41,7 @@
     </dialog>
     <activity
         android:id="@+id/detailsActivity"
-        android:name="com.markgardie.graduatework.ui.DetailsActivity"
+        android:name="com.markgardie.graduatework.ui.activities.DetailsActivity"
         android:label="Details"
         tools:layout="@layout/activity_details" >
         <argument

@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.data
+package com.markgardie.graduatework.data.network
 
 import com.markgardie.graduatework.data.network.FoodRecipesApi
 import com.markgardie.graduatework.data.network.ProductsApi

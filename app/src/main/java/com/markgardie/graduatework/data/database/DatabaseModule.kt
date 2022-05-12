@@ -1,8 +1,7 @@
-package com.markgardie.graduatework.di
+package com.markgardie.graduatework.data.database
 
 import android.content.Context
 import androidx.room.Room
-import com.markgardie.graduatework.data.database.Database
 import com.markgardie.graduatework.util.Constants.Companion.DATABASE_NAME
 import dagger.Module
 import dagger.Provides

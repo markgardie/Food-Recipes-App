@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.data.database
+package com.markgardie.graduatework.data.database.daos
 
 import androidx.room.*
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity

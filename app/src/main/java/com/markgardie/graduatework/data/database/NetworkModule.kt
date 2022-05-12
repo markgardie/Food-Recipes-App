@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.di
+package com.markgardie.graduatework.data.database
 
 import com.markgardie.graduatework.util.Constants.Companion.BASE_URL
 import com.markgardie.graduatework.data.network.FoodRecipesApi

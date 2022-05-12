@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.ui
+package com.markgardie.graduatework.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

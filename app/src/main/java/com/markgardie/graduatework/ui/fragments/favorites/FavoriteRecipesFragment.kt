@@ -4,16 +4,14 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.markgardie.graduatework.R
-import com.markgardie.graduatework.adapters.FavoriteRecipesAdapter
+import com.markgardie.graduatework.ui.adapters.FavoriteRecipesAdapter
 import com.markgardie.graduatework.databinding.FragmentFavoriteRecipesBinding
 import com.markgardie.graduatework.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_favorite_recipes.view.*
 
 
 @AndroidEntryPoint

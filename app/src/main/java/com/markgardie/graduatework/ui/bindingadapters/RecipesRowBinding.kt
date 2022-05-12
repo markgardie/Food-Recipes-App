@@ -1,10 +1,9 @@
-package com.markgardie.graduatework.bindingadapters
+package com.markgardie.graduatework.ui.bindingadapters
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.convertTo
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.markgardie.graduatework.R

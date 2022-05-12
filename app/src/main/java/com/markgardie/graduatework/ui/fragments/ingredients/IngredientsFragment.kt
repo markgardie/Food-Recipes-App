@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.markgardie.graduatework.R
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.markgardie.graduatework.adapters.IngredientsAdapter
+import com.markgardie.graduatework.ui.adapters.IngredientsAdapter
 import com.markgardie.graduatework.models.Result
 import com.markgardie.graduatework.util.Constants.Companion.RECIPE_RESULT_KEY
 import kotlinx.android.synthetic.main.fragment_ingredients.view.*

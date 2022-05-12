@@ -1,18 +1,21 @@
-package com.markgardie.graduatework.ui
+package com.markgardie.graduatework.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.observe
 import androidx.navigation.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.markgardie.graduatework.R
-import com.markgardie.graduatework.adapters.PagerAdapter
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
+import com.markgardie.graduatework.ui.adapters.PagerAdapter
 import com.markgardie.graduatework.ui.fragments.ingredients.IngredientsFragment
 import com.markgardie.graduatework.ui.fragments.instructions.InstructionsFragment
 import com.markgardie.graduatework.ui.fragments.overview.OverviewFragment
@@ -20,10 +23,6 @@ import com.markgardie.graduatework.util.Constants.Companion.RECIPE_RESULT_KEY
 import com.markgardie.graduatework.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_details.*
-import android.util.Log
-import androidx.core.app.ShareCompat
-import androidx.lifecycle.observe
-import java.lang.Exception
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {

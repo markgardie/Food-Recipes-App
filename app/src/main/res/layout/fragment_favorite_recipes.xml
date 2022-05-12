@@ -10,7 +10,7 @@
 
         <variable
             name="mAdapter"
-            type="com.markgardie.graduatework.adapters.FavoriteRecipesAdapter" />
+            type="com.markgardie.graduatework.ui.adapters.FavoriteRecipesAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

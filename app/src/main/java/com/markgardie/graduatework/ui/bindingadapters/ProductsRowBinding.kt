@@ -1,19 +1,10 @@
-package com.markgardie.graduatework.bindingadapters
+package com.markgardie.graduatework.ui.bindingadapters
 
-import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
-import androidx.navigation.findNavController
 import coil.load
 import com.markgardie.graduatework.R
-import com.markgardie.graduatework.models.Result
-import com.markgardie.graduatework.ui.fragments.recipes.RecipesFragmentDirections
-import org.jsoup.Jsoup
-import java.lang.Exception
 
 class ProductsRowBinding {
 

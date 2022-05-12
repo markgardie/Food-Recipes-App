@@ -16,7 +16,7 @@
     </fragment>
     <activity
         android:id="@+id/priceActivity"
-        android:name="com.markgardie.graduatework.ui.ProductsActivity"
+        android:name="com.markgardie.graduatework.ui.activities.ProductsActivity"
         android:label="activity_price"
         tools:layout="@layout/activity_products" >
         <argument

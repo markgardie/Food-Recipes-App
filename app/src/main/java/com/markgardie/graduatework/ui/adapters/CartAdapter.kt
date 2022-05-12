@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.adapters
+package com.markgardie.graduatework.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,9 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.databinding.CartRowLayoutBinding
-import com.markgardie.graduatework.databinding.ProductsRowLayoutBinding
-import com.markgardie.graduatework.models.Product
-import com.markgardie.graduatework.models.ProductsList
 import com.markgardie.graduatework.util.RecipesDiffUtil
 
 class CartAdapter(): RecyclerView.Adapter<CartAdapter.MyViewHolder>() {

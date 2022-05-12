@@ -15,17 +15,15 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.markgardie.graduatework.viewmodels.MainViewModel
 import com.markgardie.graduatework.R
-import com.markgardie.graduatework.adapters.RecipesAdapter
+import com.markgardie.graduatework.ui.adapters.RecipesAdapter
 import com.markgardie.graduatework.databinding.FragmentRecipesBinding
 import com.markgardie.graduatework.util.NetworkListener
 import com.markgardie.graduatework.util.NetworkResult
 import com.markgardie.graduatework.util.observeOnce
 import com.markgardie.graduatework.viewmodels.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_recipes.view.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi

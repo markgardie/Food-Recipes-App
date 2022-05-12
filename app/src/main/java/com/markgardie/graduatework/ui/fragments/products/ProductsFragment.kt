@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.markgardie.graduatework.adapters.ProductsAdapter
+import com.markgardie.graduatework.ui.adapters.ProductsAdapter
 import com.markgardie.graduatework.databinding.FragmentProductsBinding
 import com.markgardie.graduatework.models.ExtendedIngredient
 import com.markgardie.graduatework.util.Constants.Companion.EKO_MARKET

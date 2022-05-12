@@ -1,21 +1,16 @@
-package com.markgardie.graduatework.adapters
+package com.markgardie.graduatework.ui.adapters
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.markgardie.graduatework.R
 import com.markgardie.graduatework.databinding.IngredientsRowLayoutBinding
 import com.markgardie.graduatework.models.ExtendedIngredient
-import com.markgardie.graduatework.ui.fragments.ingredients.IngredientsFragment
 import com.markgardie.graduatework.ui.fragments.ingredients.IngredientsFragmentDirections
 import com.markgardie.graduatework.util.Constants.Companion.BASE_IMAGE_URL
 import com.markgardie.graduatework.util.RecipesDiffUtil

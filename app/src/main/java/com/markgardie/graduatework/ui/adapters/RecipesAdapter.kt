@@ -1,4 +1,4 @@
-package com.markgardie.graduatework.adapters
+package com.markgardie.graduatework.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

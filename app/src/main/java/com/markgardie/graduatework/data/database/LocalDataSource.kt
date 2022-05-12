@@ -1,7 +1,7 @@
-package com.markgardie.graduatework.data
+package com.markgardie.graduatework.data.database
 
-import com.markgardie.graduatework.data.database.ProductsDao
-import com.markgardie.graduatework.data.database.RecipesDao
+import com.markgardie.graduatework.data.database.daos.ProductsDao
+import com.markgardie.graduatework.data.database.daos.RecipesDao
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.data.database.entities.RecipesEntity
@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class LocalDataSource @Inject constructor(
-        private val recipesDao: RecipesDao,
-        private val productsDao: ProductsDao
+    private val recipesDao: RecipesDao,
+    private val productsDao: ProductsDao
 ) {
 
 
