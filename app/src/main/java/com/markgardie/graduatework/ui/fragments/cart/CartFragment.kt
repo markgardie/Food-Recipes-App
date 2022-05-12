@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -23,41 +24,28 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class CartFragment : Fragment() {
 
-    private lateinit var mainViewModel: MainViewModel
+    private val mainViewModel: MainViewModel by viewModels()
     private val mAdapter: CartAdapter by lazy { CartAdapter() }
 
     private var _binding: FragmentCartBinding? = null
     private val binding get() = _binding!!
-    var productEntities = mutableListOf<ProductEntity>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentCartBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
+        binding.mainViewModel = mainViewModel
+        binding.mAdapter = mAdapter
 
         setupRecyclerView(binding.cartRecyclerView)
-        readDatabase()
 
         return binding.root
     }
 
-    private fun readDatabase() {
-        lifecycleScope.launch {
-            mainViewModel.readCart.observeOnce(viewLifecycleOwner, Observer { database ->
-                if (database.isNotEmpty()) {
-                    mAdapter.setData(database)
-                    productEntities.addAll(database)
-                }
-            })
-        }
-    }
+
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
         recyclerView.adapter = mAdapter
