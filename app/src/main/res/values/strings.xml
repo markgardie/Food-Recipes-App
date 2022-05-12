@@ -44,4 +44,5 @@
     <string name="cart">Cart</string>
     <string name="total_price">Total Price:</string>
     <string name="order">Order</string>
+    <string name="no_products">No Products</string>
 </resources>

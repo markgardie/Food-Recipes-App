@@ -5,8 +5,12 @@
 
     <data>
         <variable
-            name="cartFragment"
-            type="com.markgardie.graduatework.ui.fragments.cart.CartFragment" />
+            name="mainViewModel"
+            type="com.markgardie.graduatework.viewmodels.MainViewModel" />
+
+        <variable
+            name="mAdapter"
+            type="com.markgardie.graduatework.ui.adapters.CartAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +39,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            setTotalPrice="@{cartFragment.productEntities}"
+            setTotalPrice="@{mainViewModel.readCart}"
             android:textColor="@color/darker"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -55,6 +59,7 @@
 
         <com.todkars.shimmer.ShimmerRecyclerView
             android:id="@+id/cartRecyclerView"
+            cartSetData="@{mAdapter}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -65,6 +70,36 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <ImageView
+            android:id="@+id/cart_no_data_imageView"
+            cartViewVisibility= "@{mainViewModel.readCart}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.5"
+            android:src="@drawable/ic_menu_book"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.37" />
+
+        <TextView
+            android:id="@+id/cart_no_data_textView"
+            cartViewVisibility="@{mainViewModel.readCart}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:text="@string/no_products"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/cart_no_data_imageView"
+            app:layout_constraintStart_toStartOf="@+id/cart_no_data_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/cart_no_data_imageView" />
 
         <Button
             android:id="@+id/orderButton"
