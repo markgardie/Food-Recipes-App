@@ -1,8 +1,6 @@
-package com.markgardie.graduatework.data.database
+package com.markgardie.graduatework.data.network
 
 import com.markgardie.graduatework.util.Constants.Companion.BASE_URL
-import com.markgardie.graduatework.data.network.FoodRecipesApi
-import com.markgardie.graduatework.data.network.ProductsApi
 import com.markgardie.graduatework.util.Constants.Companion.PRODUCTS_URL
 import dagger.Module
 import dagger.Provides
