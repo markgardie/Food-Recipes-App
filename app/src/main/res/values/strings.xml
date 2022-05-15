@@ -46,4 +46,5 @@
     <string name="order">Order</string>
     <string name="no_products">No Products</string>
     <string name="cart_is_empty">Cart is empty</string>
+    <string name="to_cart">To Cart</string>
 </resources>
