@@ -29,7 +29,7 @@ class ProductsFragment() : Fragment() {
 
     private lateinit var mainViewModel: MainViewModel
 
-    private val mAdapter by lazy { ProductsAdapter () }
+    private val mAdapter by lazy { ProductsAdapter (requireActivity(), mainViewModel) }
 
 
 
