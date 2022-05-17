@@ -10,14 +10,14 @@
 
         <variable
             name="mAdapter"
-            type="com.markgardie.graduatework.adapters.FavoriteRecipesAdapter" />
+            type="com.markgardie.graduatework.ui.adapters.FavoriteRecipesAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/lightGray"
-        tools:context=".ui.fragments.favorites.FavoriteRecipesFragment">
+        tools:context=".ui.fragments.FavoriteRecipesFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/favoriteRecipesRecyclerView"
