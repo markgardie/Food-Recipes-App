@@ -10,6 +10,9 @@ import com.markgardie.graduatework.data.database.entities.FavoritesEntity
 import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.ui.adapters.CartAdapter
 import com.markgardie.graduatework.ui.adapters.FavoriteRecipesAdapter
+import java.math.BigDecimal
+import java.math.RoundingMode
+import kotlin.math.round
 
 class CartBinding {
 
@@ -26,7 +29,9 @@ class CartBinding {
                 }
             }
 
-            textView.text = totalPrice.toString()
+            val totalPriceRounded = BigDecimal(totalPrice).setScale(2, RoundingMode.HALF_EVEN)
+
+            textView.text = totalPriceRounded.toString()
         }
 
         @BindingAdapter("cartViewVisibility", "cartSetData", requireAll = false)
