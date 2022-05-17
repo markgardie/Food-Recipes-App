@@ -1,9 +1,7 @@
 package com.markgardie.graduatework.ui.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -11,6 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+import com.markgardie.graduatework.R
 import com.markgardie.graduatework.ui.adapters.CartAdapter
 import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.databinding.FragmentCartBinding
@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 class CartFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by viewModels()
-    private val mAdapter: CartAdapter by lazy { CartAdapter(mainViewModel) }
+    private val mAdapter: CartAdapter by lazy { CartAdapter(requireActivity() ,mainViewModel) }
 
     private var _binding: FragmentCartBinding? = null
     private val binding get() = _binding!!
@@ -40,6 +40,8 @@ class CartFragment : Fragment() {
         binding.mainViewModel = mainViewModel
         binding.mAdapter = mAdapter
 
+        setHasOptionsMenu(true)
+
         setupRecyclerView(binding.cartRecyclerView)
 
         return binding.root
@@ -50,6 +52,33 @@ class CartFragment : Fragment() {
     private fun setupRecyclerView(recyclerView: RecyclerView) {
         recyclerView.adapter = mAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+        mAdapter.clearContextualActionMode()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.favorite_recipes_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.deleteAll_favorite_recipes_menu){
+            mainViewModel.removeAllFromCart()
+            showSnackBar()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showSnackBar(){
+        Snackbar.make(
+                binding.root,
+                "All products removed.",
+                Snackbar.LENGTH_SHORT
+        ).setAction("Okay"){}
+                .show()
     }
 
 }
