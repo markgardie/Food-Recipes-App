@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 class CartFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by viewModels()
-    private val mAdapter: CartAdapter by lazy { CartAdapter() }
+    private val mAdapter: CartAdapter by lazy { CartAdapter(mainViewModel) }
 
     private var _binding: FragmentCartBinding? = null
     private val binding get() = _binding!!

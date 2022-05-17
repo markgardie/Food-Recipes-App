@@ -137,6 +137,16 @@
                     app:layout_constraintStart_toEndOf="@+id/cart_currency"
                     app:layout_constraintTop_toTopOf="@+id/cart_currency" />
 
+                <ImageView
+                    android:id="@+id/delete_product_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/cart_grams"
+                    app:layout_constraintEnd_toEndOf="@+id/cart_ingredient_name"
+                    app:layout_constraintTop_toTopOf="@+id/cart_grams"
+                    app:srcCompat="@drawable/ic_delete"
+                    app:tint="#E10909" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
