@@ -47,4 +47,8 @@
     <string name="no_products">No Products</string>
     <string name="cart_is_empty">Cart is empty</string>
     <string name="to_cart">To Cart</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="confirm">Confirm</string>
 </resources>
