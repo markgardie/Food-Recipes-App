@@ -20,17 +20,17 @@ class OrdersViewModel @ViewModelInject constructor(
 
     val readOrders: LiveData<List<OrdersEntity>> = repository.local.readOrders().asLiveData()
 
-    private fun addOrder(ordersEntity: OrdersEntity) =
+    fun addOrder(ordersEntity: OrdersEntity) =
             viewModelScope.launch(Dispatchers.IO) {
                 repository.local.addOrder(ordersEntity)
             }
 
-    private fun deleteOrder(ordersEntity: OrdersEntity) =
+    fun deleteOrder(ordersEntity: OrdersEntity) =
             viewModelScope.launch(Dispatchers.IO) {
                 repository.local.deleteOrder(ordersEntity)
             }
 
-    private fun deleteAllOrders() =
+    fun deleteAllOrders() =
             viewModelScope.launch(Dispatchers.IO) {
                 repository.local.deleteAllOrders()
             }
