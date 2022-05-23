@@ -43,7 +43,7 @@
             app:layout_constraintVertical_bias="0.08" />
 
         <EditText
-            android:id="@+id/address_editView"
+            android:id="@+id/address_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -62,8 +62,8 @@
             android:layout_height="wrap_content"
             android:text="@string/confirm"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/address_editView"
-            app:layout_constraintTop_toBottomOf="@+id/address_editView"
+            app:layout_constraintStart_toStartOf="@+id/address_editText"
+            app:layout_constraintTop_toBottomOf="@+id/address_editText"
             app:layout_constraintVertical_bias="0.16" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
