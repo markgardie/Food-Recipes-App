@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="ordersEntity"
+            type="com.markgardie.graduatework.data.database.entities.OrdersEntity" />
     </data>
 
 
@@ -50,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="@string/delivery_address"
+                    setAddress="@{ordersEntity}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/phone_textView"
                     app:layout_constraintTop_toBottomOf="@+id/phone_textView" />
@@ -60,25 +62,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/contact_phone"
+                    setPhone="@{ordersEntity}"
                     app:layout_constraintStart_toStartOf="@+id/name_textView"
                     app:layout_constraintTop_toBottomOf="@+id/name_textView" />
 
-                <TextView
+                 <TextView
                     android:id="@+id/name_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="@string/contact_name"
+                    setName="@{ordersEntity}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/delete_orders_imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tint="@color/red"
+                    app:tint="@color/red"
                     app:layout_constraintBottom_toBottomOf="@+id/address_textView"
                     app:layout_constraintStart_toStartOf="@+id/total_price_textView"
                     app:layout_constraintTop_toTopOf="@+id/address_textView"

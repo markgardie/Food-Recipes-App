@@ -5,8 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="ordersViewModel"
+            type="com.markgardie.graduatework.viewmodels.OrdersViewModel" />
 
-
+        <variable
+            name="mAdapter"
+            type="com.markgardie.graduatework.ui.adapters.OrdersAdapter" />
     </data>
 
 
@@ -15,8 +20,10 @@
         android:layout_height="match_parent"
         tools:context=".ui.fragments.OrderFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.todkars.shimmer.ShimmerRecyclerView
             android:id="@+id/orders_RecyclerView"
+            ordersViewVisibility="@{ordersViewModel.readOrders}"
+            ordersSetData="@{mAdapter}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="-160dp"
@@ -26,6 +33,7 @@
             android:id="@+id/no_orders_imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            ordersViewVisibility="@{ordersViewModel.readOrders}"
             android:src="@drawable/ic_bag"
             android:alpha="0.5"
             android:visibility="invisible"
@@ -40,6 +48,7 @@
             android:id="@+id/no_orders_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            ordersViewVisibility="@{ordersViewModel.readOrders}"
             android:layout_marginTop="8dp"
             android:text="@string/no_orders"
             android:textSize="18sp"
