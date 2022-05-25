@@ -8,6 +8,7 @@
         <variable
             name="ordersEntity"
             type="com.markgardie.graduatework.data.database.entities.OrdersEntity" />
+
     </data>
 
 
@@ -41,7 +42,7 @@
                     android:id="@+id/total_price_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/total_price"
+                    setTotalPrice="@{ordersEntity.products}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/name_textView"
                     app:layout_constraintTop_toTopOf="@+id/name_textView" />
