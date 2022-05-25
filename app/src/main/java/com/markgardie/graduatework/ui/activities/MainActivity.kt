@@ -25,7 +25,8 @@ class MainActivity : AppCompatActivity() {
             setOf(
                     R.id.recipesFragment,
                     R.id.favoriteRecipesFragment,
-                    R.id.cartFragment
+                    R.id.cartFragment,
+                    R.id.orderFragment
         ))
 
         bottomNavigationView.setupWithNavController(navController)

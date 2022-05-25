@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -14,8 +15,11 @@ import com.markgardie.graduatework.R
 import com.markgardie.graduatework.ui.adapters.CartAdapter
 import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.databinding.FragmentCartBinding
+import com.markgardie.graduatework.models.Product
+import com.markgardie.graduatework.models.ProductsList
 import com.markgardie.graduatework.util.observeOnce
 import com.markgardie.graduatework.viewmodels.MainViewModel
+import com.markgardie.graduatework.viewmodels.OrdersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -26,6 +30,7 @@ class CartFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by viewModels()
     private val mAdapter: CartAdapter by lazy { CartAdapter(requireActivity() ,mainViewModel) }
+    private var products = mutableListOf<Product>()
 
     private var _binding: FragmentCartBinding? = null
     private val binding get() = _binding!!
@@ -43,6 +48,20 @@ class CartFragment : Fragment() {
         setHasOptionsMenu(true)
 
         setupRecyclerView(binding.cartRecyclerView)
+
+        mainViewModel.readCart.observe(viewLifecycleOwner, Observer { viewmodel_products ->
+            for (cart_product in viewmodel_products) {
+                products.add(cart_product.product)
+            }
+        })
+
+        val productList = ProductsList(products)
+
+        val action = CartFragmentDirections.actionCartFragmentToOrderFormFragment(productList)
+
+        binding.orderButton.setOnClickListener {
+            findNavController().navigate(action)
+        }
 
         return binding.root
     }
