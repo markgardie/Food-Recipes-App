@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ordersEntity"
+            type="com.markgardie.graduatework.data.database.entities.OrdersEntity" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ordersRowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ordersCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="@color/strokeColor"
+            app:strokeWidth="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ordersBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardBackgroundColor"
+                android:elevation="2dp">
+
+                <TextView
+                    android:id="@+id/total_price_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    setTotalPrice="@{ordersEntity.products}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/name_textView"
+                    app:layout_constraintTop_toTopOf="@+id/name_textView" />
+
+                <TextView
+                    android:id="@+id/address_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    setAddress="@{ordersEntity}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/phone_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_textView" />
+
+                <TextView
+                    android:id="@+id/phone_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    setPhone="@{ordersEntity}"
+                    app:layout_constraintStart_toStartOf="@+id/name_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/name_textView" />
+
+                 <TextView
+                    android:id="@+id/name_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    setName="@{ordersEntity}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/delete_orders_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/red"
+                    app:layout_constraintBottom_toBottomOf="@+id/address_textView"
+                    app:layout_constraintStart_toStartOf="@+id/total_price_textView"
+                    app:layout_constraintTop_toTopOf="@+id/address_textView"
+                    app:srcCompat="@drawable/ic_delete" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

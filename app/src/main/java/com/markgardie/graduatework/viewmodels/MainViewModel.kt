@@ -8,8 +8,10 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.markgardie.graduatework.data.Repository
 import com.markgardie.graduatework.data.database.entities.FavoritesEntity
+import com.markgardie.graduatework.data.database.entities.ProductEntity
 import com.markgardie.graduatework.data.database.entities.RecipesEntity
 import com.markgardie.graduatework.models.FoodRecipe
+import com.markgardie.graduatework.models.ProductsList
 import com.markgardie.graduatework.util.NetworkResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,6 +26,7 @@ class MainViewModel @ViewModelInject constructor (
 
     val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readRecipes().asLiveData()
     val readFavoriteRecipes: LiveData<List<FavoritesEntity>> = repository.local.readFavoriteRecipes().asLiveData()
+    val readCart: LiveData<List<ProductEntity>> = repository.local.readCart().asLiveData()
 
     private fun insertRecipes(recipesEntity: RecipesEntity) =
             viewModelScope.launch (Dispatchers.IO) {
@@ -35,9 +38,19 @@ class MainViewModel @ViewModelInject constructor (
                 repository.local.insertFavoriteRecipes(favoritesEntity)
             }
 
+    fun addToCart(productEntity: ProductEntity) =
+            viewModelScope.launch (Dispatchers.IO) {
+                repository.local.addToCart(productEntity)
+            }
+
     fun deleteFavoriteRecipe(favoritesEntity: FavoritesEntity) =
             viewModelScope.launch(Dispatchers.IO) {
                 repository.local.deleteFavoriteRecipe(favoritesEntity)
+            }
+
+    fun removeFromCart(productEntity: ProductEntity) =
+            viewModelScope.launch(Dispatchers.IO) {
+                repository.local.removeFromCart(productEntity)
             }
 
     fun deleteAllFavoriteRecipes() =
@@ -45,12 +58,24 @@ class MainViewModel @ViewModelInject constructor (
                 repository.local.deleteAllFavoriteRecipes()
             }
 
+    fun removeAllFromCart() =
+            viewModelScope.launch(Dispatchers.IO) {
+                repository.local.removeAllFromCart()
+            }
+
+
+
     /** RETROFIT */
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
     var searchedRecipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
+    var productsResponse: MutableLiveData<NetworkResult<ProductsList>> = MutableLiveData()
 
     fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
         getRecipesSafeCall(queries)
+    }
+
+    fun getProducts(shopId: String, title: String) = viewModelScope.launch {
+        getProductsSafeCall(shopId, title)
     }
 
     fun searchRecipes(searchQuery: Map<String, String>) = viewModelScope.launch {
@@ -73,6 +98,21 @@ class MainViewModel @ViewModelInject constructor (
             }
         } else {
             recipesResponse.value = NetworkResult.Error("No Internet Connection.")
+        }
+    }
+
+    private suspend fun getProductsSafeCall(shopId: String, title: String) {
+        productsResponse.value = NetworkResult.Loading()
+        if (hasInternetConnection()) {
+            try {
+                val response = repository.remote.getProducts(shopId, title)
+                productsResponse.value = handleProductResponse(response)
+
+            } catch (e: Exception) {
+                productsResponse.value = NetworkResult.Error(e.toString())
+            }
+        } else {
+            productsResponse.value = NetworkResult.Error("No Internet Connection.")
         }
     }
 
@@ -110,6 +150,24 @@ class MainViewModel @ViewModelInject constructor (
             response.isSuccessful -> {
                 val foodRecipes = response.body()
                 return NetworkResult.Success(foodRecipes!!)
+            }
+            else -> {
+                return NetworkResult.Error(response.message())
+            }
+        }
+    }
+
+    private fun handleProductResponse(response: Response<ProductsList>): NetworkResult<ProductsList>? {
+        when {
+            response.message().toString().contains("timeout") -> {
+                return NetworkResult.Error("Timeout")
+            }
+            response.body()!!.products.isNullOrEmpty() -> {
+                return NetworkResult.Error("Products not found.")
+            }
+            response.isSuccessful -> {
+                val products = response.body()
+                return NetworkResult.Success(products!!)
             }
             else -> {
                 return NetworkResult.Error(response.message())

@@ -6,8 +6,10 @@ class Constants {
         const val API_KEY = "c9bb43e5ef4f479fb41e55e3d11b760f"
         const val BASE_URL = "https://api.spoonacular.com"
         const val BASE_IMAGE_URL = "https://spoonacular.com/cdn/ingredients_100x100/"
+        const val PRODUCTS_URL = "https://stores-api.zakaz.ua"
 
         const val RECIPE_RESULT_KEY = "recipeBundle"
+        const val INGREDIENTS_BUNDLE = "ingredientsBundle"
 
         //API Query Keys
         const val QUERY_SEARCH = "query"
@@ -18,10 +20,15 @@ class Constants {
         const val QUERY_ADD_RECIPE_INFORMATION = "addRecipeInformation"
         const val QUERY_FILL_INGREDIENTS = "fillIngredients"
 
+        //Shops Keys
+        const val EKO_MARKET = "48280187"
+
         //ROOM Database
-        const val DATABASE_NAME = "recipes_database"
+        const val DATABASE_NAME = "database"
         const val RECIPES_TABLE = "recipes_table"
         const val FAVORITE_RECIPES_TABLE = "favorite_recipes_table"
+        const val PRODUCTS_TABLE = "products_table"
+        const val ORDERS_TABLE = "orders_table"
 
         // Bottom Sheet Preferences
         const val DEFAULT_RECIPES_NUMBER = "50"

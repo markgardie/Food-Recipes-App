@@ -39,4 +39,21 @@
     <string name="delete_favorite_menu">Delete Favorite Menu</string>
     <string name="delete_all">Delete All</string>
     <string name="share_recipe">Share Recipe</string>
+    <string name="g">g</string>
+    <string name="slash">/</string>
+    <string name="cart">Cart</string>
+    <string name="total_price">Total Price:</string>
+    <string name="order">Order</string>
+    <string name="no_products">No Products</string>
+    <string name="cart_is_empty">Cart is empty</string>
+    <string name="to_cart">To Cart</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="confirm">Confirm</string>
+    <string name="no_orders">No Orders</string>
+    <string name="orders">Orders</string>
+    <string name="contact_name">Contact Name:</string>
+    <string name="contact_phone">Contact Phone:</string>
+    <string name="delivery_address">Delivery Address:</string>
 </resources>
