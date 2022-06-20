@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "618353381810",
+    "project_id": "easycook---graduate-work",
+    "storage_bucket": "easycook---graduate-work.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618353381810:android:dcdfe380b8052389b594ab",
+        "android_client_info": {
+          "package_name": "com.markgardie.graduatework"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618353381810-dsks2fseeorjhec217444av66v87m1hd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.markgardie.graduatework",
+            "certificate_hash": "9e4ebed774ac0c6cc06135e9c1b722efbe71af1c"
+          }
+        },
+        {
+          "client_id": "618353381810-p9dk6koq710psf412gfh8ucmsq6a27m9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS1r7veQKx78bxMc5uHRK_H8HsyVEH9m0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618353381810-p9dk6koq710psf412gfh8ucmsq6a27m9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
