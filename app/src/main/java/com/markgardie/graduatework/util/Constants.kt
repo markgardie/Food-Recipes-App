@@ -11,6 +11,8 @@ class Constants {
         const val RECIPE_RESULT_KEY = "recipeBundle"
         const val INGREDIENTS_BUNDLE = "ingredientsBundle"
 
+        const val REQUEST_CODE_SIGN_IN = 123
+
         //API Query Keys
         const val QUERY_SEARCH = "query"
         const val QUERY_NUMBER = "number"
