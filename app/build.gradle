@@ -54,6 +54,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //Firebase Auth
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.2'
+    implementation "com.google.firebase:firebase-auth:19.2.0"
+
     // Coordinator Layout
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 
