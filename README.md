@@ -14,6 +14,7 @@
 - place orders and delivery (mockup)
  
 Spoonacular API for recipes data: [Spoonacular API](https://spoonacular.com/food-api)
+
 Zakaz UA API for products, stores and ingredients data: [Zakaz UA](https://stores-api.zakaz.ua/)
 
 ## Demo
