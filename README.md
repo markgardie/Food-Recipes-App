@@ -33,6 +33,7 @@ You can see all features and screens on Youtube: [App Demo](https://youtu.be/3Z0
 - Navigation Component
 - Databinding
 - Dagger-Hilt
+- Firebase Authentication
 
 
 ## Contacts
